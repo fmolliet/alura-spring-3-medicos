@@ -21,10 +21,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of="id")
 public class Medico {
+    public Medico(DadosCadastroMedico dados) {
+        nome = dados.nome();
+        email = dados.email();
+        crm = dados.crm();
+        telefone = dados.telefone();
+        especialidade = dados.especialidade();
+        endereco = new Endereco(dados.endereco());
+    }
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
+    private String telefone;
     private String crm;
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
