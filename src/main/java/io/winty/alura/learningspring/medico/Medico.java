@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of="id")
 public class Medico {
     public Medico(DadosCadastroMedico dados) {
+        ativo = true;
         nome = dados.nome();
         email = dados.email();
         crm = dados.crm();
@@ -42,6 +43,8 @@ public class Medico {
     
     @Embedded
     private Endereco endereco;
+    
+    private Boolean ativo;
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
         if ( dados.nome() != null){
@@ -55,5 +58,9 @@ public class Medico {
         if ( dados.endereco() != null){
             this.endereco.atualizarInformacoes(dados.endereco());
         }
+    }
+
+    public void desativar() {
+        ativo = false;
     }
 }
