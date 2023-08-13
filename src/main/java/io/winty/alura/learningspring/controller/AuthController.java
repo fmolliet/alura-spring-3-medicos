@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.winty.alura.learningspring.domain.usuario.DadosAuth;
+import io.winty.alura.learningspring.domain.usuario.DadosTokenJWT;
+import io.winty.alura.learningspring.domain.usuario.Usuario;
+import io.winty.alura.learningspring.infra.security.TokenService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -19,10 +22,15 @@ public class AuthController {
     @Autowired
     private AuthenticationManager manager;
     
+    @Autowired
+    private TokenService service;
+    
     @PostMapping
-    public ResponseEntity login(@RequestBody @Valid DadosAuth dados){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-        var authentication = manager.authenticate(token);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<DadosTokenJWT> login(@RequestBody @Valid DadosAuth dados){
+        var authtoken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+        var authentication = manager.authenticate(authtoken);
+        var tokenjwt = service.gerarToken((Usuario)authentication.getPrincipal());
+        
+        return ResponseEntity.ok(new DadosTokenJWT(tokenjwt));
     }
 }
