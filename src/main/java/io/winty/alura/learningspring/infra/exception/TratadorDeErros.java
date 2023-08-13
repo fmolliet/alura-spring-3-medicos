@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.infra;
+package io.winty.alura.learningspring.infra.exception;
 
 import java.util.List;
 
