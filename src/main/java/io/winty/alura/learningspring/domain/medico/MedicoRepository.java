@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.medico;
+package io.winty.alura.learningspring.domain.medico;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

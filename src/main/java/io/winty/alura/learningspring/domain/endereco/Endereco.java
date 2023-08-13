@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.endereco;
+package io.winty.alura.learningspring.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

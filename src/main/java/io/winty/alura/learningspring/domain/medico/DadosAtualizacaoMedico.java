@@ -1,6 +1,6 @@
-package io.winty.alura.learningspring.medico;
+package io.winty.alura.learningspring.domain.medico;
 
-import io.winty.alura.learningspring.endereco.DadosEndereco;
+import io.winty.alura.learningspring.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoMedico(

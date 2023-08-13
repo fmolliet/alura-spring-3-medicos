@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.medico;
+package io.winty.alura.learningspring.domain.medico;
 
 public record DadosListagemMedico(Long id,String nome, String email, String crm, Especialidade especialidade) {
     

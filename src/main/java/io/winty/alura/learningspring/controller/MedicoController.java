@@ -13,15 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import io.winty.alura.learningspring.medico.DadosAtualizacaoMedico;
-import io.winty.alura.learningspring.medico.DadosCadastroMedico;
-import io.winty.alura.learningspring.medico.DadosDetalhamentoMedico;
-import io.winty.alura.learningspring.medico.DadosListagemMedico;
-import io.winty.alura.learningspring.medico.Medico;
-import io.winty.alura.learningspring.medico.MedicoRepository;
+import io.winty.alura.learningspring.domain.medico.DadosAtualizacaoMedico;
+import io.winty.alura.learningspring.domain.medico.DadosCadastroMedico;
+import io.winty.alura.learningspring.domain.medico.DadosDetalhamentoMedico;
+import io.winty.alura.learningspring.domain.medico.DadosListagemMedico;
+import io.winty.alura.learningspring.domain.medico.Medico;
+import io.winty.alura.learningspring.domain.medico.MedicoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -65,9 +64,9 @@ public class MedicoController {
     
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity excluir(@PathVariable("id") Long id){
+    public ResponseEntity<String> excluir(@PathVariable("id") Long id){
         // deleta de maneira lógica
-        //repository.deleteById(id);
+        /**repository.deleteById(id);*/
         var medico = repository.getReferenceById(id);
         medico.desativar();
         return ResponseEntity.noContent().build();

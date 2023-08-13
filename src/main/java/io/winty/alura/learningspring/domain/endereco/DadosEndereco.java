@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.endereco;
+package io.winty.alura.learningspring.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

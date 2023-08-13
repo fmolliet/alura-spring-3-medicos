@@ -1,6 +1,6 @@
-package io.winty.alura.learningspring.medico;
+package io.winty.alura.learningspring.domain.medico;
 
-import io.winty.alura.learningspring.endereco.Endereco;
+import io.winty.alura.learningspring.domain.endereco.Endereco;
 
 public record DadosDetalhamentoMedico(Long id, String nome, String email, String crm, Especialidade especialidade, Endereco endereco){
     public DadosDetalhamentoMedico( Medico medico ){

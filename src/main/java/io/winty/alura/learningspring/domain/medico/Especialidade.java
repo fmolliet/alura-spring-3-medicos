@@ -1,4 +1,4 @@
-package io.winty.alura.learningspring.medico;
+package io.winty.alura.learningspring.domain.medico;
 
 public enum Especialidade {
     ORTOPEDIA,
