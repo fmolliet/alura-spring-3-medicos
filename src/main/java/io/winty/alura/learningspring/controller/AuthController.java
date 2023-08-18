@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.winty.alura.learningspring.domain.usuario.DadosAuth;
-import io.winty.alura.learningspring.domain.usuario.DadosTokenJWT;
 import io.winty.alura.learningspring.domain.usuario.Usuario;
+import io.winty.alura.learningspring.infra.security.DadosTokenJWT;
 import io.winty.alura.learningspring.infra.security.TokenService;
 import jakarta.validation.Valid;
 
