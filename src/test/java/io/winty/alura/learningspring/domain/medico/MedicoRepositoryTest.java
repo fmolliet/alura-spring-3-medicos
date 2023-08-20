@@ -1,6 +1,7 @@
 package io.winty.alura.learningspring.domain.medico;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -23,7 +24,7 @@ public class MedicoRepositoryTest {
     private MedicoRepository repository;
     
     @Test
-    @DisplayName("Deveria devolver null quando unico medico cadastrado nao está disponível na data")
+    @DisplayName("Deveria devolver medico quando unico medico cadastrado nao está disponível na data")
     void escolherMedicoAleatorioLivreNaDataCenario1(){
         var proximaSegundaAs10 = LocalDate.now()
         .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
@@ -31,5 +32,16 @@ public class MedicoRepositoryTest {
         
         var medicoLivre = repository.escolherMedicoAleatorioLivreNaData(Especialidade.ORTOPEDIA, proximaSegundaAs10);
         assertNotNull(medicoLivre);
+    }
+    
+    @Test
+    @DisplayName("Deveria devolver null quando unico medico cadastrado nao está disponível na data")
+    void escolherMedicoAleatorioLivreNaDataCenario2(){
+        var proximaSegundaAs10 = LocalDate.now()
+        .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
+        .atTime(10, 0);
+        
+        var medicoLivre = repository.escolherMedicoAleatorioLivreNaData(Especialidade.CARDIOLOGIA, proximaSegundaAs10);
+        assertNull(medicoLivre);
     }
 }
