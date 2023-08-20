@@ -3,10 +3,13 @@ package io.winty.alura.learningspring.domain.consulta.validacoes;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
 import io.winty.alura.learningspring.domain.consulta.DadosAgendamentoConsulta;
 import io.winty.alura.learningspring.infra.exception.ValidacaoException;
 
-public class ValidadorHorarioAntecedencia {
+@Component
+public class ValidadorHorarioAntecedencia implements ValidadorDadosAgendamentoConsulta{
     public void validar(DadosAgendamentoConsulta dados) {
         var dataConsulta = dados.data();
         var agora = LocalDateTime.now();

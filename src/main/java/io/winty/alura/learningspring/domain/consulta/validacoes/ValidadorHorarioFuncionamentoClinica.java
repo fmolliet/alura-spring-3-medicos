@@ -2,10 +2,13 @@ package io.winty.alura.learningspring.domain.consulta.validacoes;
 
 import java.time.DayOfWeek;
 
+import org.springframework.stereotype.Component;
+
 import io.winty.alura.learningspring.domain.consulta.DadosAgendamentoConsulta;
 import io.winty.alura.learningspring.infra.exception.ValidacaoException;
 
-public class ValidadorHorarioFuncionamentoClinica {
+@Component
+public class ValidadorHorarioFuncionamentoClinica implements ValidadorDadosAgendamentoConsulta{
     
     public void validar(DadosAgendamentoConsulta dados){
         var dataConsulta = dados.data();

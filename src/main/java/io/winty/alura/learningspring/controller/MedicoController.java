@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.winty.alura.learningspring.domain.medico.DadosAtualizacaoMedico;
 import io.winty.alura.learningspring.domain.medico.DadosCadastroMedico;
 import io.winty.alura.learningspring.domain.medico.DadosDetalhamentoMedico;
@@ -26,6 +27,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
     
     @Autowired
